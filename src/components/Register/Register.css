@@ -1,0 +1,136 @@
+.auth {
+  padding: 70px 0;
+}
+
+.auth__bottom {
+  padding-top: 16px;
+  text-align: center;
+}
+
+.auth__link {
+  display: inline-block;
+  margin-left: 6px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #4285F4;
+  transition: all 0.3s ease-in-out;
+}
+
+.auth__link:hover {
+  opacity: .6;
+}
+
+.auth__text {
+  display: inline-block;
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8B8B8B;
+}
+
+.form_auth {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_auth label {
+  margin-top: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #8B8B8B;
+}
+
+.form__title {
+  margin: 0;
+  padding: 40px 0 20px 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #fff;
+}
+
+.form__input_auth {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 10px;
+  padding: 15px;
+  background: #2F2F2F;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+}
+
+.form__input_auth:focus {
+  border: 1px solid #fff;
+}
+
+.form__input_auth::placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+}
+
+.form__input-error-message {
+  display: none;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+}
+
+.form__input-error-message_active {
+  display: block;
+}
+
+.button_auth {
+  width: 100%;
+  min-height: 45px;
+  margin-top: 69px;
+  background-color: #4285F4;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 450px) {
+  .auth {
+    padding: 56px 0 30px 0;
+  }
+
+  .auth__bottom {
+    padding-top: 14px;
+  } 
+
+  .auth__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  
+  .auth__text {
+    font-size: 12px;
+    line-height: 15px;
+  }   
+
+  .form__title_auth {
+    text-align: center;
+  }   
+
+  .button_auth {
+    margin-top: 157px;
+  }   
+}

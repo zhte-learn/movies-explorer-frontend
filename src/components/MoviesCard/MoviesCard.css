@@ -1,0 +1,79 @@
+.film {
+  position: relative;
+  box-sizing: border-box;
+  background-color: #222222;
+}
+
+.film__figure {
+  margin: 0;
+}
+
+.film__caption {
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.film__title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #fff;
+}
+
+.film__duration {
+  margin: 0;
+  padding-top: 9px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8B8B8B;
+}
+
+.film__image-container {
+  width: 100%;
+  height: 203px;
+}
+
+.film__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button_like {
+  position: absolute;
+  top: 19px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #313131;
+  background-image: url(../../images/icon-flag-grey.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out; 
+}
+
+.button_like_liked {
+  background-color: #3DDC84;
+  background-image: url(../../images/icon-flag-white.svg);
+}
+
+.button_delete {
+  position: absolute;
+  top: 19px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #313131;
+  background-image: url(../../images/icon-delete.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out; 
+}
