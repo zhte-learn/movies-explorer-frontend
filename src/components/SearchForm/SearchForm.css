@@ -62,7 +62,10 @@
 
 .form__checkbox {
   padding-top: 30px;
+  display: flex;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -71,6 +74,7 @@
 
 .form__checkbox input+label {
   position: relative;
+  min-height: 20px;
   padding-left: 48px;
   z-index: 1;
   cursor: pointer;
@@ -81,7 +85,7 @@
   content: "";
   display: block;
   left: 0;
-  top: -2px;
+  top: 0;
   width: 36px;
   height: 20px;
   background-image: url(../../images/icon-checkbox.svg);

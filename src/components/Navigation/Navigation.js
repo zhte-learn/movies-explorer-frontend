@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { MenuContext } from '../../context/menuState';
 import SideNav from '../SideNav/SideNav';
@@ -13,24 +13,24 @@ function Navigation () {
 
   return(
     <>  
-      <nav class="navigation">
+      <nav className="navigation">
         <NavLink
           to="/movies"
-          class="navigation__link"
+          className="navigation__link"
           activeClassName="navigation__link_active"
           activeStyle={{ borderBottom: '2px solid white' }}>
             Фильмы
         </NavLink>
         <NavLink
           to="/saved-movies"
-          class="navigation__link"
+          className="navigation__link"
           activeClassName="navigation__link_active"
           activeStyle={{ borderBottom: '2px solid white' }}>
             Сохраненные фильмы
         </NavLink>
         <NavLink
           to="/profile"
-          class="navigation__link navigation__link_profile"
+          className="navigation__link navigation__link_profile"
           activeClassName="navigation__link_active"
           activeStyle={{ borderBottom: '2px solid white' }}>
             Аккаунт

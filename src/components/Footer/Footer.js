@@ -8,9 +8,9 @@ function Footer () {
         <div className="footer__bottom">
           <span className="footer__copyright">&copy; 2021</span>
           <ul className="footer__links">
-            <li><a className="footer__link" href="#" target="_blank">Яндекс.Практикум</a></li>
-            <li><a className="footer__link" href="#" target="_blank">Github</a></li>
-            <li><a className="footer__link" href="#" target="_blank">Facebook</a></li>
+            <li><a className="footer__link" href="https://praktikum.yandex.ru" target="_blank" rel="noreferrer">Яндекс.Практикум</a></li>
+            <li><a className="footer__link" href="https://github.com" target="_blank" rel="noreferrer">Github</a></li>
+            <li><a className="footer__link" href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a></li>
           </ul>
         </div> 
       </div>     

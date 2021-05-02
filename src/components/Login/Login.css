@@ -85,20 +85,6 @@
   color: #FFFFFF;
 }
 
-.form__input-error-message {
-  display: none;
-  margin-top: 10px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #EE3465;
-}
-
-.form__input-error-message_active {
-  display: block;
-}
-
 .button_auth {
   width: 100%;
   min-height: 45px;

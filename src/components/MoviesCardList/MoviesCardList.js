@@ -3,9 +3,9 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList () {
   return(
-    <section class="film-gallery">
-      <div class="container container_main-708px">
-        <ul class="film-list">
+    <section className="film-gallery">
+      <div className="container container_main-708px">
+        <ul className="film-list">
           <MoviesCard />
           <MoviesCard />
           <MoviesCard />

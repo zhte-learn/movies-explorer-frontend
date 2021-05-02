@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -9,9 +8,10 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
-  const [ isLoggedIn, setIsLoggedIn ] = React.useState(true);
+  const [isLoggedIn] = React.useState(false);
 
   return (
     <div className="page">
@@ -23,24 +23,27 @@ function App() {
           <Login />
         </Route>
         <Route exact path ='/'>
-          <Main 
+          <Main
             isLoggedIn={isLoggedIn}
           />
         </Route>
         <Route path ='/movies'>
-          <Movies 
-            isLoggedIn={isLoggedIn}  
+          <Movies
+            isLoggedIn={isLoggedIn}
           />
         </Route>
         <Route path ='/saved-movies'>
-          <SavedMovies 
+          <SavedMovies
             isLoggedIn={isLoggedIn}
           />
         </Route>
         <Route path ='/profile'>
-          <Profile 
+          <Profile
             isLoggedIn={isLoggedIn}
           />
+        </Route>
+        <Route path ='*'>
+          <PageNotFound />
         </Route>
       </Switch>
     </div>

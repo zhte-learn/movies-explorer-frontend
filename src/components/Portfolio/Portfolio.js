@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './Portfolio.css';
 
 function Portfolio () {
@@ -9,15 +8,15 @@ function Portfolio () {
         <ul className="portfolio__list">
           <li className="portfolio__item">
             <p className="portfolio__item-title">Статичный сайт</p>
-            <Link className="portfolio__link"></Link>
+            <a className="portfolio__link" href="https://facebook.com" target="_blank" rel="noreferrer">&nbsp;</a>
           </li>
           <li className="portfolio__item">
             <p className="portfolio__item-title">Адаптивный сайт</p>
-            <Link className="portfolio__link"></Link>
+            <a className="portfolio__link" href="https://facebook.com" target="_blank" rel="noreferrer">&nbsp;</a>
           </li>
           <li className="portfolio__item">
             <p className="portfolio__item-title">Одностраничное приложение</p>
-            <Link className="portfolio__link"></Link>
+            <a className="portfolio__link" href="https://facebook.com" target="_blank" rel="noreferrer">&nbsp;</a>
           </li>
         </ul>
       </div>      
