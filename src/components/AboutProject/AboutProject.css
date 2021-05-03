@@ -115,6 +115,13 @@
   } 
 }
 
+@media screen and (max-width: 400px) {
+  .about__graphics {
+    margin-top: 60px;
+    grid-template-columns: minmax(120px, 1fr) 4fr;
+  }  
+}
+
 @media screen and (max-width: 320px) {
   .about__content {
     padding: 70px 0;
@@ -130,11 +137,11 @@
     margin-top: 16px;
     font-size: 11px;
     line-height: 16px;
-  }  
-
+  } 
+  
   .about__graphics {
     margin-top: 60px;
-    grid-template-columns: 100px 184px;
+    grid-template-columns: minmax(100px, 1fr) 4fr;
   }  
 
   .about__graphics-plan {

@@ -122,6 +122,12 @@
   }  
 }
 
+@media screen and (max-width: 720px) {
+  .container_main-708px {
+    max-width: 90%;
+  }  
+}
+
 @media screen and (max-width: 700px) {
   .container_main {
     max-width: 90%;
