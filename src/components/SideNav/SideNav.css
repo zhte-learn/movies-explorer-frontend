@@ -1,0 +1,141 @@
+.side-menu {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 293;
+  width: 520px;
+  max-width: 100%;
+  min-height: 100vh;
+  max-height: 1024px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 159px 0 92px 0;
+  background-color: #202020;
+  transition: visibility 0.5s linear 0.5s, opacity 0.5s linear;
+}
+
+.side-menu:before {  
+  content: '';
+	position: fixed; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+  height: 100%;
+  background-color: #202020;
+  opacity: .6; 
+  z-index: -1;
+}
+
+.side-menu_opened {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+.button_close {
+  position: absolute;
+  top: 23px;
+  right:23px;
+  width: 22px;
+  height: 22px;
+  font-size: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.button_close::before,
+.button_close::after{
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 22px;
+  height: 3px;
+  background-color: #fff;
+}
+
+.button_close::before{
+  transform: rotate(45deg);
+}
+
+.button_close::after{
+  transform: rotate(-45deg);
+}
+
+.button_close:hover,
+.button_close:focus {
+  opacity: .6;
+}
+
+.button_close:active {
+  transform: translateY(1px);
+  filter: saturate(150%);  
+}
+
+.side-menu__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu__link {
+  margin-bottom: 22px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.side-menu__link_active {
+  border-bottom: 2px solid #fff;
+}
+
+.side-menu__link:hover {
+  opacity: .6;
+}
+
+.side-menu__link_profile {
+  position: relative;
+  margin-bottom: 0;
+  padding-left: 210px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.side-menu__link_profile::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 284px;
+  width: 26px;
+  height: 30px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #313131;
+  background-image: url(../../images/icon-user.svg);
+  background-position: center;
+  background-repeat: no-repeat;   
+}
+
+@media screen and (max-width: 320px) {
+  .side-menu {
+    padding: 144px 0 48px 0;
+  }
+  .side-menu__link {
+    margin-bottom: 15px; 
+  }
+
+  .side-menu__link_profile {
+    margin-bottom: 0;
+  }
+}

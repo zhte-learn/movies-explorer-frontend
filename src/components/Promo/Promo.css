@@ -1,0 +1,51 @@
+.intro {
+  background-color: #202020;
+  padding-top: 22px;
+}
+
+.intro__content {
+  min-height: 493px;
+  background-color: #272727;
+  border-radius: 10px;
+}
+
+.intro__title {
+  max-width: 730px;
+  margin: 0 auto;
+  padding-top: 160px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .intro__content {
+    min-height: 728px;
+  }
+
+  .intro__title {
+    padding-top: 350px;
+    max-width: 680px;
+    font-size: 40px;
+    line-height: 52px;
+  }  
+}
+
+@media screen and (max-width: 550px) {
+  .intro__title {
+    padding-top: 234px;
+    max-width: 292px;
+    font-size: 29px;
+    line-height: 37px;
+  }  
+}
+
+@media screen and (max-width: 320px) {
+  .intro {
+    padding-top: 14px;
+  }   
+}
