@@ -85,14 +85,6 @@
   color: #FFFFFF;
 }
 
-.button_auth {
-  width: 100%;
-  min-height: 45px;
-  margin-top: 69px;
-  background-color: #4285F4;
-  border-radius: 3px;
-}
-
 @media screen and (max-width: 450px) {
   .auth {
     padding: 56px 0 30px 0;
@@ -114,9 +106,5 @@
 
   .form__title_auth {
     text-align: center;
-  }   
-
-  .button_auth {
-    margin-top: 157px;
-  }   
+  }
 }

@@ -9,9 +9,41 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import PageNotFound from '../PageNotFound/PageNotFound';
+import MoviesApi from '../../utils/MoviesApi';
 
 function App() {
   const [isLoggedIn] = React.useState(false);
+  
+
+  const query = 'чупи';
+
+  React.useEffect(() => {
+    MoviesApi.getAllMovies()
+    .then((movies)=> {
+      localStorage.setItem('movies', JSON.stringify(movies));
+    })
+    .catch((error) => alert(error)) 
+  }, []);
+
+  /* React.useEffect(() => {
+    MoviesApi.getAllMovies()
+    .then((movies)=> {
+    console.log(Object.keys(movies[0]))
+
+    const filterItems = movies.filter(el => {
+      for (let key of Object.keys(el)) {
+        if(el[key] && el[key].toString().toLowerCase().indexOf(query.toLowerCase()) > -1){
+          return true;
+        }
+      }
+      return false;
+    });
+      console.log(filterItems); 
+      setFilterMovies(filterItems);
+      console.log(filterMovies)
+    })
+    .catch((error) => alert(error))
+  }); */
 
   return (
     <div className="page">

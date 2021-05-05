@@ -57,12 +57,22 @@
 .button_search{
   padding: 8px 12px;
   border-radius: 48px;
-  background-color: #4285F4;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 18px;
   color: #fff;
+}
+
+.button_search_disabled{
+  background-color: #8B8B8B;
+  opacity: .5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.button_search_active{
+  background-color: #4285F4;
 }
 
 .form__checkbox {
