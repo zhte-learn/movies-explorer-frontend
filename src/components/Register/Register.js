@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useFormWithValidation } from '../../utils/FormValidator';
 import './Register.css';
+import { useFormWithValidation } from '../../utils/FormValidator';
 import logo from '../../images/logo.jpeg';
 import ButtonAuth from '../ButtonAuth/ButtonAuth';
 
-function Register () {
+function Register (props) {
   const validator = useFormWithValidation();
 
   function handleSubmit(event) {
     event.preventDefault();
+    props.onRegister(validator.values.name, validator.values.email, validator.values.password);
     event.target.reset();
   }
 
@@ -53,7 +54,7 @@ function Register () {
               id="email"
               className="form__input form__input_auth"
               type="email"
-              name="name"
+              name="email"
               placeholder="" 
               required
               onChange={validator.handleChange}
@@ -72,10 +73,10 @@ function Register () {
               className="form__input form__input_auth"
               type="password"
               name="password"
-              minLength="3"
+              minLength="8"
               maxLength="10"
               required
-              onChange={validator.handleChange} 
+              onChange={validator.handleChange}
             />
           </label>
           <span id="password-input-error"

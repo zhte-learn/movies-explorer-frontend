@@ -6,7 +6,6 @@ import Footer from '../Footer/Footer';
 
 function Movies (props) {
   const [filterMovies, setFilterMovies] = React.useState([]);
-  console.log(filterMovies)
 
   function handleMovieSearch(query) {
     const movies = JSON.parse(localStorage.getItem('movies'));
@@ -22,6 +21,7 @@ function Movies (props) {
       setFilterMovies(filterItems);
   }
 
+
   return(
     <>
       <Header 
@@ -31,7 +31,13 @@ function Movies (props) {
         <SearchForm 
          searchCallBack={handleMovieSearch}
         />
-        {filterMovies.length > 0 && <MoviesCardList movies={filterMovies}/>}
+        {filterMovies.length > 0 
+          && 
+          <MoviesCardList 
+            movies={filterMovies}
+            onMovieLike={props.onMovieLike}
+            onMovieDislike={props.onMovieDislike}
+        />}
       </main>
       <Footer />
     </>

@@ -5,11 +5,12 @@ import './Login.css';
 import logo from '../../images/logo.jpeg';
 import ButtonAuth from '../ButtonAuth/ButtonAuth';
 
-function Login () {
+function Login (props) {
   const validator = useFormWithValidation();
 
   function handleSubmit(event) {
     event.preventDefault();
+    props.onLogin(validator.values.email, validator.values.password);
     event.target.reset();
   }
 

@@ -11,9 +11,13 @@ class Api {
     return Promise.reject("Произошла ошибка");
   }
 
-  getAllMovies() {
-    return fetch(`${this._url}`, {
-      method: 'GET',
+  likeMovie(movie) {
+    return fetch(`${this._url}/movies`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(movie),
     })
     .then((res) => {
       return this._handleResult(res);

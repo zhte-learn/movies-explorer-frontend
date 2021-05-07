@@ -51,15 +51,17 @@
   height: 30px;
   box-sizing: border-box;
   border-radius: 50%;
-  background-color: #313131;
-  background-image: url(../../images/icon-flag-grey.svg);
   background-position: center;
   background-repeat: no-repeat;
   transition: all 0.3s ease-in-out; 
 }
 
+.button_like_inactive {
+  background-color: #313131;
+  background-image: url(../../images/icon-flag-grey.svg);
+}
+
 .button_like_liked {
-  visibility: hidden;
   background-color: #3DDC84;
   background-image: url(../../images/icon-flag-white.svg);
 }
