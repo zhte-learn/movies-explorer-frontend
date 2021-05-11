@@ -67,7 +67,6 @@
 }
 
 .button_delete {
-  visibility: hidden;
   position: absolute;
   top: 19px;
   right: 14px;

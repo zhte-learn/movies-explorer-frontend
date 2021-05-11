@@ -55,7 +55,7 @@ function Register (props) {
               className="form__input form__input_auth"
               type="email"
               name="email"
-              placeholder="" 
+              placeholder=""
               required
               onChange={validator.handleChange}
             />

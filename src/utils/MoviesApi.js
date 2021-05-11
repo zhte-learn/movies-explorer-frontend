@@ -5,11 +5,20 @@ class Api {
   }
 
   _handleResult(res) {
+    return res.json().then((json) => {
+      if(!res.ok) {
+        throw json;
+      }
+      return json;
+    })
+  }
+
+  /* _handleResult(res) {
     if (res.ok) {
       return res.json();
     }
     return Promise.reject("Произошла ошибка");
-  }
+  } */
 
   getAllMovies() {
     return fetch(`${this._url}`, {

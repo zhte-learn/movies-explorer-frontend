@@ -5,10 +5,25 @@ class Api {
   }
 
   _handleResult(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject("Произошла ошибка");
+    return res.json().then((json) => {
+      if(!res.ok) {
+        throw json;
+      }
+      return json;
+    })
+  }
+
+  getSavedMovies() {
+    return fetch(`${this._url}/movies`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    .then((res) => {
+      return this._handleResult(res);
+    })
   }
 
   likeMovie(movie) {
@@ -16,8 +31,22 @@ class Api {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify(movie),
+    })
+    .then((res) => {
+      return this._handleResult(res);
+    })
+  }
+
+  dislikeMovie(id) {
+    return fetch(`${this._url}/movies/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+      }
     })
     .then((res) => {
       return this._handleResult(res);
