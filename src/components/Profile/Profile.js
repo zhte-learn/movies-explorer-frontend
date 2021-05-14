@@ -56,7 +56,7 @@ function Profile (props) {
                 defaultValue={currentUser.name}
                 minLength="1"
                 maxLength="30"
-                pattern="[a-zA-Zа-яА-Я\-\s]"
+                pattern="^[a-zA-Zа-яА-Я\-\s]*$"
                 required
                 onChange={validator.handleChange}
               />             
