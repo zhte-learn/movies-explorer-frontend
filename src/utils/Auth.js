@@ -57,8 +57,7 @@ class Auth {
 }
 
 const auth = new Auth({
-  //url: 'https://api.zhte-f.nomoredomains.icu',
-  url: 'http://localhost:3000',
+  url: 'https://api.movies.nomoredomains.club/api',
   headers: {
     'content-type': 'application/json'
   }
