@@ -1,0 +1,23 @@
+.button_auth {
+  width: 100%;
+  min-height: 45px;
+  margin-top: 69px;
+  border-radius: 3px;
+}
+
+.button_auth_active {
+  background-color: #4285F4;
+}
+
+.button_auth_disabled {
+  background-color: #8B8B8B;
+  opacity: .5;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 450px) {
+  .button_auth {
+    margin-top: 157px;
+  }   
+}

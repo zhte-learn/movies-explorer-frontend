@@ -41,7 +41,8 @@ function Navigation () {
         className="button button_burger-menu"
         type="button"
         aria-label="Меню"
-        onClick={clickHandler}>
+        onClick={clickHandler}
+      >
       </button>
     </>
   )
