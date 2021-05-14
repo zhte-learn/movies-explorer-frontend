@@ -1,15 +1,21 @@
+import React from 'react';
 import './SearchForm.css';
 import { useFormWithValidation } from '../../utils/FormValidator';
 
 function SearchForm (props) {
+  const [isChecked, setIsChecked] = React.useState(false);
   const validator = useFormWithValidation();
 
   function handleSubmit(event) {
     event.preventDefault();
+    props.searchCallBack(validator.values.filmSearch, isChecked);
     event.target.reset();
-    props.searchCallBack(validator.values.filmSearch);
   }
-  /* console.log(validator.errors) */
+
+  function handleCheckboxChange(event) {
+    const value = event.target.checked;
+    setIsChecked(value);
+  }
 
   return(
     <section className="film-search">
@@ -36,10 +42,16 @@ function SearchForm (props) {
           <span
             id="search-input-error"
             className={`form__input-error-message ${validator.errors.filmSearch && validator.errors.filmSearch.length>0 && 'form__input-error-message_active'}`}>
-              {validator.errors.filmSearch}
+              Нужно ввести ключевое слово
           </span>            
           <div className="form__checkbox">
-            <input id="search-checkbox" className="form__input form__input_checkbox" type="checkbox" name="shortFilm" />            
+            <input
+              id="search-checkbox"
+              className="form__input form__input_checkbox"
+              type="checkbox"
+              name="shortFilm" 
+              onChange={handleCheckboxChange}
+            />            
             <label for="search-checkbox" className="form__input_checkbox-label">Короткометражки</label>
           </div>
         </form>

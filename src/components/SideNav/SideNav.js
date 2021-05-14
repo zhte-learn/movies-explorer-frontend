@@ -43,12 +43,12 @@ function SideNav () {
         </NavLink>
       </nav>
       <NavLink
-          to="/profile"
-          className="side-menu__link side-menu__link_profile"
-          activeClassName="side-menu__link_active"
-          activeStyle={{ borderBottom: '2px solid white' }}>
-            Аккаунт
-        </NavLink>
+        to="/profile"
+        className="side-menu__link side-menu__link_profile"
+        activeClassName="side-menu__link__profile_active"
+        activeStyle={{ borderBottom: '2px solid white' }}>
+          <span className="side-menu__profile-title">Аккаунт</span>
+      </NavLink>
     </section>
   )
 }

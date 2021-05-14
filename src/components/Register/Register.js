@@ -38,6 +38,7 @@ function Register (props) {
               placeholder=""
               minLength="2"
               maxLength="30"
+              pattern="^[a-zA-Zа-яА-Я\-\s]*$"
               required
               onChange={validator.handleChange} 
             />              
@@ -57,13 +58,14 @@ function Register (props) {
               name="email"
               placeholder=""
               required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               onChange={validator.handleChange}
             />
           </label>
           <span
             id="email-input-error"
             className={`form__input-error-message ${!validator.isValid && 'form__input-error-message_active'}`}>
-              {validator.errors.email}  
+              {validator.errors.email}
           </span>
           
           <label for="password">

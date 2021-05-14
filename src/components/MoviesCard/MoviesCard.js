@@ -1,7 +1,6 @@
 import React from 'react';
 import './MoviesCard.css';
-
-//распечатать пропс, увидеть _id из базы данных
+import adaptTime from '../../utils/adaptTime';
 
 function MoviesCard (props) {
   const [isLiked, setIsLiked] = React.useState(props.isLiked);
@@ -20,27 +19,25 @@ function MoviesCard (props) {
     }
   }
 
-  function cutString(str) {
-    if(str.length > 32) {
-      return `${str.substr(0, 32)}...`;
+  function handleDeleteClick() {
+    props.onMovieDelete(props);
+  }
+
+  function handleClick() {
+    if (props.trailer !== "") {
+      window.open(props.trailer);
     }
-    return str;
   }
-
-  function adaptTime(num) {
-    const hours = Math.floor(num / 60);
-    const minutes = Math.floor(((num % 60) * 100) / 100);
-
-    return `${hours}ч ${minutes}м`;
-  }
-
-  //если saved true, значит кнопка удаления. Наоборот, кнопка лайка
-  //удаление карточки
 
   return(
     <li className="film">
       {props.isSaved ? 
-        <button className="button button_delete" type="button" aria-label="Поставить лайк"></button>
+        <button
+          className="button button_delete"
+          type="button"
+          aria-label="Удалить фильм"
+          onClick={handleDeleteClick}>
+        </button>
       :
         <button
           className={`button button_like ${isLiked ? "button_like_liked" : "button_like_inactive"}`}
@@ -51,11 +48,16 @@ function MoviesCard (props) {
       }
       <figure className="film__figure">             
         <figcaption className="film__caption">
-          <h2 className="film__title">{cutString(props.nameRU)}</h2>
+          <h2 className="film__title">{props.nameRU}</h2>
           <p className="film__duration">{adaptTime(props.duration)}</p>
         </figcaption>
         <div className="film__image-container">
-        <img className="film__image" alt={`Кадр из фильма ${props.nameRU}`} src={props.image} />
+        <img
+          className="film__image"
+          alt={`Кадр из фильма ${props.nameRU}`}
+          src={props.image} 
+          onClick={handleClick}
+        />
         </div>
       </figure>  
     </li>

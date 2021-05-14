@@ -52,10 +52,37 @@ class Api {
       return this._handleResult(res);
     })
   }
+
+  getUserData() {
+    return fetch(`${this._url}/users/me`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+      }
+    })
+    .then((res) => {
+      return this._handleResult(res);
+    })
+  }
+
+  updateUserData(data) {
+    return fetch(`${this._url}/users/me`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify(data),
+    })
+    .then((res) => {
+      return this._handleResult(res);
+    })
+  }
 }
 
 const MainApi = new Api({
-  url: 'http://localhost:3000',
+  url: 'https://api.movies.nomoredomains.club/api',
 });
 
 export default MainApi;

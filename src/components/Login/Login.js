@@ -39,6 +39,7 @@ function Login (props) {
               placeholder=""
               minLength="2"
               maxLength="30"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               required
               onChange={validator.handleChange}
             />

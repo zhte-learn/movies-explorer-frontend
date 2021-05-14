@@ -11,11 +11,6 @@ class Auth {
       }
       return json;
     })
-    /* if (res.ok) {
-      return res.json();
-    }
-    console.log(res.body)
-    return Promise.reject('Произошла ошибка'); */
   }
 
   register(name, email, password) {
@@ -28,28 +23,6 @@ class Auth {
     })
     .then((res) => this._handleResult(res))
   }
-
-  /* register(name, email, password) {
-    return fetch(`${this._url}/signup`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ name, email, password })
-    })
-    .then((res) => {
-      //return this._handleResult(res);
-      return res.json();
-    })
-    .then((body) => {
-      console.log(body)
-      if (body.status === 200) {
-        return body;
-      } else {
-        return Promise.reject(body.message);
-      }
-    });
-  } */
 
   authorize(email, password) {
     return fetch(`${this._url}/signin`, {
@@ -72,6 +45,7 @@ class Auth {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization' : `Bearer ${token}`,
       }

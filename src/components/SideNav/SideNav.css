@@ -105,18 +105,28 @@
 }
 
 .side-menu__link_profile {
-  position: relative;
+  width: 100px;
   margin-bottom: 0;
-  padding-left: 210px;
+  margin-left: 213px;
   font-size: 14px;
   line-height: 16px;
 }
 
-.side-menu__link_profile::after {
+.side-menu__link__profile_active {
+  padding-left: 0px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #fff;
+}
+
+.side-menu__profile-title {
+  position: relative;
+}
+
+.side-menu__profile-title::after {
   content: "";
   position: absolute;
   top: -7px;
-  left: 284px;
+  left: 72px;
   width: 26px;
   height: 30px;
   box-sizing: border-box;

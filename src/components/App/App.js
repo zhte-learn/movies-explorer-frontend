@@ -9,21 +9,65 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import auth from '../../utils/Auth';
+import MainApi from '../../utils/MainApi';
+import { currentUserContext } from '../../context/currentUserContext';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const history = useHistory();
+  const [ isLoggedIn, setIsLoggedIn ] = React.useState(false);
+  const [ currentUser, setCurrentUser ] = React.useState('');
+  const [ isInfoTooltipOpen, setIsInfoTooltipOpen ] = React.useState(false);
+  const [ errorMessage, setErrorMessage ] = React.useState('');
+
+  function showPopupError(error) {
+    if(error.message) {
+      setErrorMessage(error.message);
+    } else {
+      setErrorMessage(error.validation.body.message);
+    }    
+    setIsInfoTooltipOpen(true);
+  }
+
+  React.useEffect(() => {
+    const tockenCheck = () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        auth.getContent(token)
+        .then(() => {
+          setIsLoggedIn(true);
+          history.push('/movies');
+        })
+        .catch((error) => {
+          showPopupError(error);
+          history.push('/signin');
+        })  
+      }
+    }
+    tockenCheck();
+  }, [history]);
+
+  React.useEffect(() => {
+    if (isLoggedIn) {
+      MainApi.getUserData()
+      .then(userData => {
+        setCurrentUser(userData);
+      })
+      .catch((error) => {
+        showPopupError(error);
+      }) 
+    }
+  }, [isLoggedIn]);
 
   function onRegister(name, email, password) {
     auth.register(name, email, password)
     .then((res) => {
-      //console.log(res)
       history.push('/signin');   
     })
-    .catch((e) => {
-      //console.log(e);
+    .catch((error) => {
+      showPopupError(error);
       history.push('/signup');
     })
   }
@@ -34,10 +78,27 @@ function App() {
       setIsLoggedIn(true);
       history.push('/movies');
     })
-    .catch((error) => alert(error))
+    .catch((error) => {
+      showPopupError(error);
+    })
+  }
+
+  function handleUpdateUser(userData) {
+    MainApi.updateUserData(userData)
+    .then((newUserData)=> {
+      setCurrentUser(newUserData);
+    })
+    .catch((error) => {
+      showPopupError(error);
+    })
+  }
+
+  function closePopup() {
+    setIsInfoTooltipOpen(false);
   }
 
   return (
+    <currentUserContext.Provider value = {currentUser}>
     <div className="page">
       <Switch>
         <Route path ='/signup'>
@@ -59,16 +120,34 @@ function App() {
         <ProtectedRoute
           path ='/movies'
           isLoggedIn={isLoggedIn}
-          component={Movies} 
+          component={Movies}
+          showError={showPopupError}
         />
-        <ProtectedRoute path ='/saved-movies' isLoggedIn={isLoggedIn} component={SavedMovies} />
-        <ProtectedRoute path ='/profile' isLoggedIn={isLoggedIn} component={Profile} />
+        <ProtectedRoute
+          path ='/saved-movies'
+          isLoggedIn={isLoggedIn}
+          component={SavedMovies} 
+          showError={showPopupError}
+        />
+        <ProtectedRoute
+          path ='/profile'
+          component={Profile}
+          isLoggedIn={isLoggedIn}
+          onLogOut={setIsLoggedIn}
+          onUpdateUser={handleUpdateUser}
+        />
           
         <Route path ='*'>
           <PageNotFound />
         </Route>
-      </Switch>
+      </Switch>     
     </div>
+    <InfoTooltip 
+        isOpen={isInfoTooltipOpen}
+        onClose={closePopup}
+        errorMessage={errorMessage}
+      />  
+    </currentUserContext.Provider>
   );
 }
 
